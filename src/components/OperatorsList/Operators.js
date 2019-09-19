@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import Operator from '../OperatorsList/OperatorItem'
+import Layout from '../../../pages/Layout'
 
 
 const OperatorsStyle = styled.span`
@@ -20,8 +21,7 @@ margin:100px;
 text-align:center;
 ` 
 
-class Operators extends Component {
-    state={
+export const state = {
         operators:[
             {
                 name:'MTS',
@@ -32,12 +32,12 @@ class Operators extends Component {
                 name:'BeeLine',
                 link:"/BeeLine",
                 logo: '/static/BeeLine.png'
-                },
+            },
             {
                 name:'Tele2',
                 link:"/Tele2",
                 logo: '/static/Tele2.png'
-                },
+            },
             {
                 name:'Megafon',
                 link:"/Megafon",
@@ -45,24 +45,39 @@ class Operators extends Component {
             }
         ]
     }
-// changeNameHandler = ()=> {
-//     console.log('Element clicked')
-// }
-    
-    render(){
+
+
+class Operators extends Component {
+    state = state
+    // changeNameHandler = ()=> {
+        //     console.log('Element clicked')
+        // }
         
-        const operators= this.state.operators
-        
-        return(
+        render(){
+            
+         const operators= this.state.operators
+            
+            return(
             <Headline>
                 Выберите оператора
             
             <OperatorsStyle>
-                {/* <button onClick = {this.changeNameHandler}>Hello</button> */}
-                <Operator name={operators[0].name} link={operators[0].link} logo={operators[0].logo} /> 
+            {operators.map((operator, index)=>{
+                return (
+                 <Operator   
+                    key={index}
+                    index={index}
+                    name={operator.name}
+                    link={operator.link}
+                    logo={operator.logo}
+                    />
+                )})
+                }
+
+                {/* <Operator name={operators[0].name} link={operators[0].link} logo={operators[0].logo} /> 
                 <Operator name={operators[1].name} link={operators[1].link} logo={operators[1].logo} /> 
                 <Operator name={operators[2].name} link={operators[2].link} logo={operators[2].logo} /> 
-                <Operator name={operators[3].name} link={operators[3].link} logo={operators[3].logo} /> 
+                <Operator name={operators[3].name} link={operators[3].link} logo={operators[3].logo} />  */}
             </OperatorsStyle>
              </Headline>
         )

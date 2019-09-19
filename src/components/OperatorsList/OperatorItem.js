@@ -10,15 +10,16 @@ margin:5px;
 font-size:20px;
 `
 
+
 const Operator = props => (
     <OperatorStyle href={props.link}>
      
         
-        <img src={props.logo} alt="logo" />
+        <img src={props.logo} alt={'Logo' + props.name} />
         {/* <Link href={`/name?name=${props.name}`}>
             <a>{props.name}</a>
         </Link> */}
-        <div > 
+        <div id={'Operator' + props.index}> 
             {props.name}
         </div>
     </OperatorStyle>

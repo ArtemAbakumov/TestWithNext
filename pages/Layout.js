@@ -10,4 +10,6 @@ const Layout = props => (
       {props.children}
     </LayoutStyle>
   );
+
+  export default Layout
   
