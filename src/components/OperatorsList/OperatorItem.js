@@ -11,7 +11,7 @@ font-size:20px;
 `
 
 const Operator = props => (
-    <OperatorStyle href={props.name}>
+    <OperatorStyle href={props.link}>
      
         
         <img src={props.logo} alt="logo" />

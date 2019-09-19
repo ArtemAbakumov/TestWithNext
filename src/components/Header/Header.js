@@ -1,25 +1,24 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 
-const HeaderStyle = styled.span `
+const HeaderStyle = styled.span`
 display:flex;
 width: 100%;
 background-color: #0590ee;
-justify-content:center
-
+justify-content:center;
 `
 
-const HeadlineStyle = styled.a `
+const HeadlineStyle = styled.a`
 padding: 2em ;
 text-align:center;
 &:visited {
   color:white
 }
 `
-const LogoStyle = styled.a `
+const LogoStyle = styled.a`
 margin:0;
 padding:0;
-border:
+
 `
 
 

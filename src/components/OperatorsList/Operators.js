@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import styled from 'styled-components'
 import Operator from '../OperatorsList/OperatorItem'
 
+
 const OperatorsStyle = styled.span`
 padding:20px;
 margin:0 20px;
@@ -11,11 +12,12 @@ justify-content:center;
 flex-grow:1;
 border:2px solid #0590ee;
 border-radius:5px;
-box-sizing:border-box
+box-sizing:border-box;
 `
-const Headline = styled.h1 `
+
+const Headline = styled.h1`
 margin:100px;
-text-align:center
+text-align:center;
 ` 
 
 class Operators extends Component {
@@ -23,7 +25,7 @@ class Operators extends Component {
         operators:[
             {
                 name:'MTS',
-                link:"/MTS",
+                link:"/PaymentPages/MTS",
                 logo: '/static/MTS.png'
             },
             {

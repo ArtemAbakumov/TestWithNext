@@ -4,7 +4,7 @@ import Header from '../src/components/Header/Header'
 import Operators from '../src/components/OperatorsList/Operators'
 
 
-const LayoutStyle = styled.div `
+const LayoutStyle = styled.div`
 `
 
 
