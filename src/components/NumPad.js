@@ -1,34 +1,95 @@
-import React from 'react'
+import React ,{Component, Fragment} from 'react';
 import styled from 'styled-components'
-import Link from 'next/link'
 
-const NumPadStyle = styled.div`
-text-align:center;
-border:1px solid #0590ee;
-border-radius:5px;
-margin:5px;
+const Button = styled.button`
+width:100px;
+height:50px;
+background-color: #0590ee;
+margin:3px;
+border-radius:3px;
 font-size:20px;
+
+`
+const Numpad = styled.div`
+margin: 0 auto;
+justify-content:center;
+width:320px;
+background-color: #0590ee;
+border:2px solid black;
+border-radius:5px;
+color: white;
 `
 
+    // const NumKeyboard = () => {
+        class NumKeyboard extends Component {
 
-const NumPad = props => (
-    <NumPadStyle>
-      
-            <span>7</span>
-            <span>8</span>
-            <span>9</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>0</span>
-            <span>.</span>
-            <span><</span>
-     
-        </NumPadStyle>
+            state = {
+                buttons:[
+                    {
+                        char:'1',
+                        id:'1'
+                    },
+                    {
+                        char:'2',
+                        id:'2'
+                    },
+                    {
+                        char:'3',
+                        id:'3'
+                    },
+                    {
+                        char:'4',
+                        id:'4'
+                    },
+                    {
+                        char:'5',
+                        id:'5'
+                    },
+                    {
+                        char:'6',
+                        id:'6'
+                    },
+                    {
+                        char:'7',
+                        id:'7'
+                    },
+                    {
+                        char:'8',
+                        id:'8'
+                    },
+                    {
+                        char:'9',
+                        id:'9'
+                    },
+                    {
+                        char:'0',
+                    id:'0'
+                    }, 
+                    {
+                        char:'<<',
+                    id:'<'
+                    },
+                ],    
+                value: ''            
+                };
+    
+                render(){
+                    const buttons = this.state.buttons
+           return(
+       <Numpad>
+       {buttons.map((button, index)=>{
+           return (
+            <Button key={index}>
+               {button.char}
+            </Button>
+            )})
+            }
+        </Numpad>
+   ) 
+        }
+   
 
-)
+   }
 
-export default Operator
+
+export default NumKeyboard

@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import styled from 'styled-components'
 import Operator from '../OperatorsList/OperatorItem'
 import Layout from '../../../pages/Layout'
@@ -17,8 +17,8 @@ box-sizing:border-box;
 `
 
 const Headline = styled.h1`
-margin:100px;
 text-align:center;
+padding-top:100px;
 ` 
 
 export const state = {
@@ -58,9 +58,11 @@ class Operators extends Component {
          const operators= this.state.operators
             
             return(
+                <Fragment>
             <Headline>
-                Выберите оператора
-            
+               Выберите оператора
+                </Headline>
+       
             <OperatorsStyle>
             {operators.map((operator, index)=>{
                 return (
@@ -79,7 +81,7 @@ class Operators extends Component {
                 <Operator name={operators[2].name} link={operators[2].link} logo={operators[2].logo} /> 
                 <Operator name={operators[3].name} link={operators[3].link} logo={operators[3].logo} />  */}
             </OperatorsStyle>
-             </Headline>
+             </Fragment>
         )
     }
 }
