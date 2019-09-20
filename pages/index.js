@@ -1,12 +1,10 @@
-import React, {Component} from 'react';
-import styled from 'styled-components'
-import Header from '../src/components/Header/Header'
-import Operators from '../src/components/OperatorsList/Operators'
-import Layout from './Layout'
+import React, { Component } from "react";
+import styled, { createGlobalStyle } from "styled-components";
+import Header from "../src/components/Header/Header";
+import Operators from "../src/components/OperatorsList/Operators";
+import Layout from "./Layout";
 
-const LayoutStyle = styled.div`
-`
-
+const LayoutStyle = styled.div``;
 
 // class Layout extends Component{
 //     render(){
@@ -21,13 +19,10 @@ const LayoutStyle = styled.div`
 
 // export default Layout
 
-
-
-
 const Index = props => (
-      <Layout >
-      <Operators />
-    </Layout>
-  );
-  
-  export default Index;
+  <Layout>
+    <Operators />
+  </Layout>
+);
+
+export default Index;
