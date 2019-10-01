@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
-const OperatorStyle = styled.a`
+const OperatorStyle = styled.div`
   text-align: center;
   border: 1px solid #0590ee;
   border-radius: 5px;
@@ -11,13 +11,15 @@ const OperatorStyle = styled.a`
 `;
 
 const Operator = props => (
-  <OperatorStyle href={props.link}>
-    <img src={props.logo} alt={"Logo" + props.name} />
-    {/* <Link href={`/name?name=${props.name}`}>
-            <a>{props.name}</a>
-        </Link> */}
-    <div id={"Operator" + props.index}>{props.name}</div>
-  </OperatorStyle>
+  <Link
+    href="/PaymentPages/[EnterPhonePage]"
+    as={`/PaymentPages/${props.name}`}
+  >
+    <OperatorStyle>
+      <img src={props.logo} alt={"Logo" + props.name} />
+      <div id={"Operator " + props.index}>{props.name}</div>
+    </OperatorStyle>
+  </Link>
 );
 
 export default Operator;

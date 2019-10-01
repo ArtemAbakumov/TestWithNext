@@ -1,5 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, useState, useRef, useEffect } from "react";
 import styled from "styled-components";
+import TelephoneInput from "../../src/components/inputLine";
+import SubmitButton from "../components/submitButton";
 
 const Button = styled.button`
   width: 100px;
@@ -16,12 +18,11 @@ const Numpad = styled.div`
   background-color: #0590ee;
   border: 2px solid black;
   border-radius: 5px;
-  color: white;
 `;
 
-// const NumKeyboard = () => {
-class NumKeyboard extends Component {
-  state = {
+const NumKeyboard = props => {
+  // class NumKeyboard extends Component {
+  const state = {
     buttons: [
       {
         char: "1",
@@ -64,31 +65,44 @@ class NumKeyboard extends Component {
         id: "0"
       },
       {
-        char: "<",
-        id: "<"
+        char: "<<",
+        id: "<<"
       }
     ],
     value: ""
   };
 
-  handleClick = () => {
-    return null; // {button.char}
-  };
+  let [sum, setSum] = useState(state.value);
 
-  render() {
-    const buttons = this.state.buttons;
-    return (
+  // useEffect(() => {
+  //   console.log("ZALUPA");
+  // }, [sum]);
+
+  const buttons = state.buttons;
+  const handleClick = char => {
+    if (char === "<<") return setSum("");
+    else setSum(sum.concat(char));
+  };
+  return (
+    <React.Fragment>
+      <TelephoneInput>{sum}</TelephoneInput>
+
       <Numpad>
         {buttons.map((button, index) => {
           return (
-            <Button key={index} id={"Num" + index} onClick={this.handleClick}>
+            <Button
+              key={index}
+              id={"Num" + index}
+              onClick={() => handleClick(button.char)}
+            >
               {button.char}
             </Button>
           );
         })}
       </Numpad>
-    );
-  }
-}
+      <SubmitButton />
+    </React.Fragment>
+  );
+};
 
 export default NumKeyboard;
