@@ -10,9 +10,10 @@ const Button = styled.button`
   margin: 3px;
   border-radius: 3px;
   font-size: 20px;
+  color: white;
 `;
 const Numpad = styled.div`
-  margin: 0 auto;
+  margin: 20px auto;
   justify-content: center;
   width: 320px;
   background-color: #0590ee;
