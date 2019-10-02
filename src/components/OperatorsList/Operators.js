@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import styled from "styled-components";
 import Operator from "../OperatorsList/OperatorItem";
 import Layout from "../../../pages/Layout";
-// import UserContext from "../components/UserContext";
+import UserContext from "../../components/UserContext";
 
 const OperatorsStyle = styled.span`
   padding: 20px;
@@ -26,22 +26,18 @@ const Operators = props => {
     operators: [
       {
         name: "MTS",
-        link: "/PaymentPages/MTS",
         logo: "/static/MTS.png"
       },
       {
         name: "BeeLine",
-        link: "/BeeLine",
         logo: "/static/BeeLine.png"
       },
       {
         name: "Tele2",
-        link: "/Tele2",
         logo: "/static/Tele2.png"
       },
       {
         name: "Megafon",
-        link: "/Megafon",
         logo: "/static/Megafon.png"
       }
     ]
@@ -50,23 +46,24 @@ const Operators = props => {
   const operators = state.operators;
 
   return (
-    <Fragment>
-      <Headline>Выберите оператора</Headline>
+    <Headline>Выберите оператора</Headline>
 
       <OperatorsStyle>
         {operators.map((operator, index) => {
           return (
+            <div>
+            <UserContext.Provider value={name=operator.name, index=index}>
             <Operator
               key={index}
               index={index}
               name={operator.name}
-              link={operator.link}
               logo={operator.logo}
             />
+        </UserContext.Provider>
+        </div>
           );
         })}
       </OperatorsStyle>
-    </Fragment>
   );
 };
 // }

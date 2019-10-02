@@ -13,7 +13,7 @@ function TelephoneInput(props) {
   return (
     <InputStyle>
       Ваш номер:
-      <input type="text" name="fname"></input> {props.children}
+      <input type="text" name="name"></input> {props.children}
     </InputStyle>
   );
 }

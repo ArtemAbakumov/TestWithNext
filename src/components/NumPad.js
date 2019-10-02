@@ -1,7 +1,6 @@
 import React, { Component, useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import TelephoneInput from "../../src/components/inputLine";
-import SubmitButton from "../components/submitButton";
 
 const Button = styled.button`
   width: 100px;
@@ -101,7 +100,6 @@ const NumKeyboard = props => {
           );
         })}
       </Numpad>
-      <SubmitButton />
     </React.Fragment>
   );
 };

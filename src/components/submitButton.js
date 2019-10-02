@@ -15,10 +15,22 @@ const Button = styled.div`
   color: white;
 `;
 
-const SubmitButton = () => {
+const handleClick = char => {
+  if (char === "<<") return setSum("");
+  else setSum(sum.concat(char));
+};
+
+export const Path = props => {
+  return props.name;
+};
+
+const SubmitButton = props => {
   return (
-    <Link href="/index">
-      <Button key={"submit"} id={"Submit"}>
+    <Link
+      href="/PaymentPages/PaymentPage"
+      as={`/PaymentPages/${props.name}/EnterSum`}
+    >
+      <Button key={"submit"} id={"Submit"} name={props.name} onClick={null}>
         Submit
       </Button>
     </Link>

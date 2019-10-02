@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { state } from "../../src/components/OperatorsList/Operators";
 import Layout from "../index";
 import Header from "../../src/components/Header/Header";
@@ -14,16 +14,18 @@ const MtsPage = styled.h1`
   padding-top: 100px;
 `;
 
-const EnterPhonePage = props => {
+// export const operatorPaht = router.query.EnterPhonePage;
+
+const PaymentPage = () => {
   const router = useRouter();
+
   return (
     <Fragment>
       <Header />
       <OperatorTitle name={router.query.EnterPhonePage} />
       <NumKeyboard />
-      <SubmitButton name={router.query.EnterPhonePage} />
     </Fragment>
   );
 };
 
-export default EnterPhonePage;
+export default PaymentPage;
