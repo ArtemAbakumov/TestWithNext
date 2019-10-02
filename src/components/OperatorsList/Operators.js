@@ -57,17 +57,13 @@ const Operators = props => {
       <OperatorsStyle>
         {operators.map((operator, index) => {
           return (
-            <Fragment>
-              <UserContext.Provider value="POST">
-                <Operator
-                  key={index}
-                  index={index}
-                  name={operator.name}
-                  link={operator.link}
-                  logo={operator.logo}
-                />
-              </UserContext.Provider>
-            </Fragment>
+            <Operator
+              key={index}
+              index={index}
+              name={operator.name}
+              link={operator.link}
+              logo={operator.logo}
+            />
           );
         })}
       </OperatorsStyle>
