@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import Header from "../../src/components/Header/Header";
 import styled from "styled-components";
 import { useRouter } from "next/router";
@@ -11,6 +11,8 @@ const MtsPage = styled.h1`
 `;
 
 const OperatorTitle = props => {
+  const router = useRouter();
+
   return (
     <MtsPage key={"Title"} id={"id"} name={props.name}>
       Оплата {props.name}

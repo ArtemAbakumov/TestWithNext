@@ -1,4 +1,4 @@
-import React, { Component, useState, useRef, useEffect } from "react";
+import React, { Component, useState, useRef, useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
@@ -15,22 +15,14 @@ const Button = styled.div`
   color: white;
 `;
 
-const handleClick = char => {
-  if (char === "<<") return setSum("");
-  else setSum(sum.concat(char));
-};
-
-export const Path = props => {
-  return props.name;
-};
-
 const SubmitButton = props => {
+  const { name } = props;
   return (
     <Link
-      href="/PaymentPages/PaymentPage"
-      as={`/PaymentPages/${props.name}/EnterSum`}
+      href={{ pathname: "/PaymentPages/PaymentPage", query: { name } }}
+      as={`/PaymentPages/${name}/PaymentPage`}
     >
-      <Button key={"submit"} id={"Submit"} name={props.name} onClick={null}>
+      <Button key={"submit"} id={"Submit"}>
         Submit
       </Button>
     </Link>

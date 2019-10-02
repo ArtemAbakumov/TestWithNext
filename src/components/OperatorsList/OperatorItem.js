@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import UserContext from "../UserContext";
 
 const OperatorStyle = styled.div`
   text-align: center;
@@ -10,16 +11,19 @@ const OperatorStyle = styled.div`
   font-size: 20px;
 `;
 
-const Operator = props => (
-  <Link
-    href="/PaymentPages/[EnterPhonePage]"
-    as={`/PaymentPages/${props.name}`}
-  >
-    <OperatorStyle>
-      <img src={props.logo} alt={"Logo" + props.name} />
-      <div id={"Operator " + props.index}>{props.name}</div>
-    </OperatorStyle>
-  </Link>
-);
+const Operator = props => {
+  // const { name, index } = useContext(UserContext);
+  return (
+    <Link
+      href="/PaymentPages/[EnterPhonePage]"
+      as={`/PaymentPages/${props.name}`}
+    >
+      <OperatorStyle>
+        <img src={props.logo} alt={"Logo" + props.name} />
+        <div id={"Operator " + props.index}>{props.name}</div>
+      </OperatorStyle>
+    </Link>
+  );
+};
 
 export default Operator;
