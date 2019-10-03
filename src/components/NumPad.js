@@ -1,4 +1,4 @@
-import React, { Component, useState, useRef, useEffect } from "react";
+import React, { Component, useState, setState, useEffect } from "react";
 import styled from "styled-components";
 import TelephoneInput from "../../src/components/inputLine";
 
@@ -20,8 +20,7 @@ const Numpad = styled.div`
   border-radius: 5px;
 `;
 
-const NumKeyboard = props => {
-  // class NumKeyboard extends Component {
+const NumKeyboard = ({ setPhoneNumber, phoneNumber }) => {
   const state = {
     buttons: [
       {
@@ -68,31 +67,25 @@ const NumKeyboard = props => {
         char: "<<",
         id: "<<"
       }
-    ],
-    value: ""
+    ]
   };
 
-  // useEffect(() => {
-  //   console.log("useEffect");
-  // }, [sum]);
-
-  let [sum, setSum] = useState(state.value);
   const buttons = state.buttons;
-  const handleClick = char => {
-    if (char === "<<") return setSum("");
-    else setSum(sum.concat(char));
+
+  const handleClickButton = char => {
+    if (char === "<<") return setPhoneNumber("");
+    else setPhoneNumber(phoneNumber.concat(char));
   };
+
   return (
     <React.Fragment>
-      <TelephoneInput>{sum}</TelephoneInput>
-
       <Numpad>
         {buttons.map((button, index) => {
           return (
             <Button
               key={index}
               id={"Num" + index}
-              onClick={() => handleClick(button.char)}
+              onClick={() => handleClickButton(button.char)}
             >
               {button.char}
             </Button>

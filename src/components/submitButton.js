@@ -16,10 +16,13 @@ const Button = styled.div`
 `;
 
 const SubmitButton = props => {
-  const { name } = props;
+  const { name, phoneNumber } = props;
   return (
     <Link
-      href={{ pathname: "/PaymentPages/PaymentPage", query: { name } }}
+      href={{
+        pathname: "/PaymentPages/PaymentPage",
+        query: { name, phoneNumber }
+      }}
       as={`/PaymentPages/${name}/PaymentPage`}
     >
       <Button key={"submit"} id={"Submit"}>
