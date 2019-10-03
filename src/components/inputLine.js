@@ -9,11 +9,6 @@ const InputStyle = styled.form`
 `;
 // class TelephoneInput extends Component {
 function TelephoneInput(props) {
-  return (
-    <InputStyle>
-      Ваш номер:
-      <input type="text" name="name"></input> {props.children}
-    </InputStyle>
-  );
+  return <InputStyle>Ваш номер:{props.children}</InputStyle>;
 }
 export default TelephoneInput;

@@ -17,12 +17,13 @@ const MtsPage = styled.h1`
 
 const EnterPhonePage = props => {
   const router = useRouter();
+  const name = router.query.EnterPhonePage;
   return (
     <Fragment>
       <Header />
-      <OperatorTitle name={router.query.EnterPhonePage} />
+      <OperatorTitle name={name} />
       <NumKeyboard />
-      <SubmitButton name={router.query.EnterPhonePage} />
+      <SubmitButton name={name} />
     </Fragment>
   );
 };

@@ -72,12 +72,11 @@ const NumKeyboard = props => {
     value: ""
   };
 
-  let [sum, setSum] = useState(state.value);
-
   // useEffect(() => {
-  //   console.log("ZALUPA");
+  //   console.log("useEffect");
   // }, [sum]);
 
+  let [sum, setSum] = useState(state.value);
   const buttons = state.buttons;
   const handleClick = char => {
     if (char === "<<") return setSum("");
