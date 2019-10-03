@@ -43,7 +43,7 @@ const Operators = props => {
       {
         name: "Megafon",
         link: "/Megafon",
-        logo: "/static/Megafon.png"
+        logo: "/static/MegaFon.png"
       }
     ]
   };
