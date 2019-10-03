@@ -20,6 +20,17 @@ const Numpad = styled.div`
   border-radius: 5px;
 `;
 
+export const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return action;
+    case "decrement":
+      return state;
+    default:
+      throw new Error();
+  }
+};
+
 const NumKeyboard = ({ setPhoneNumber, phoneNumber }) => {
   const state = {
     buttons: [
@@ -76,6 +87,10 @@ const NumKeyboard = ({ setPhoneNumber, phoneNumber }) => {
     if (char === "<<") return setPhoneNumber("");
     else setPhoneNumber(phoneNumber.concat(char));
   };
+
+  const initialState = "";
+  const reducer = (phoneNumber, setPhoneNumber = setPhoneNumberR) =>
+    setPhoneNumber;
 
   return (
     <React.Fragment>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useReducer } from "react";
 import Header from "../../src/components/Header/Header";
 import styled from "styled-components";
 import { useRouter } from "next/router";
@@ -14,11 +14,16 @@ const MtsPage = styled.h1`
 
 const PaymentPage = () => {
   const router = useRouter();
+
+  const initialState = "";
+  const reducer = (state, action) => action;
+
+  const [phoneNumber, setPhoneNumber] = useReducer(reducer, initialState);
   return (
     <>
       <Header />
       <OperatorTitle name={router.query.name} />
-      <NumKeyboard />
+      <NumKeyboard setPhoneNumber={setPhoneNumber} phoneNumber={phoneNumber} />
     </>
   );
 };

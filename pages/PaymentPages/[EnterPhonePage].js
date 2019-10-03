@@ -14,18 +14,32 @@ const MtsPage = styled.h1`
   text-align: center;
   padding-top: 100px;
 `;
-
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return action;
+    case "decrement":
+      return state;
+    default:
+      throw new Error();
+  }
+};
 const EnterPhonePage = props => {
   const router = useRouter();
   const name = router.query.EnterPhonePage;
 
-  const [phoneNumber, setPhoneNumber] = useState("");
+  // const [phoneNumber, setPhoneNumber] = useState("");
+  const initialState = "";
+
+  const [phoneNumber, setPhoneNumber] = useReducer(reducer, initialState);
 
   return (
     <Fragment>
       <Header />
       <OperatorTitle name={name} />
-      <TelephoneInput>{phoneNumber}</TelephoneInput>
+      <TelephoneInput>
+        <input value={phoneNumber} />
+      </TelephoneInput>
       <NumKeyboard setPhoneNumber={setPhoneNumber} phoneNumber={phoneNumber} />
       <SubmitButton name={name} phoneNumber={phoneNumber} />
     </Fragment>
