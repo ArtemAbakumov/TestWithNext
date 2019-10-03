@@ -25,7 +25,7 @@ const EnterPhonePage = props => {
     <Fragment>
       <Header />
       <OperatorTitle name={name} />
-      <TelephoneInput>{phoneNumber}</TelephoneInput>
+      <TelephoneInput>Введите ваш номер:{phoneNumber}</TelephoneInput>
       <NumKeyboard setPhoneNumber={setPhoneNumber} phoneNumber={phoneNumber} />
       <SubmitButton name={name} phoneNumber={phoneNumber} />
     </Fragment>

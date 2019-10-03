@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import Header from "../../src/components/Header/Header";
+import TelephoneInput from "../../src/components/inputLine";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import NumKeyboard, { setSum } from "../../src/components/NumPad";
@@ -12,13 +13,17 @@ const MtsPage = styled.h1`
 
 // export const operatorPaht = router.query.EnterPhonePage;
 
-const PaymentPage = () => {
+const PaymentPage = props => {
   const router = useRouter();
+  const [phoneNumber, setPhoneNumber] = useState("");
+
   return (
     <>
       <Header />
       <OperatorTitle name={router.query.name} />
-      <NumKeyboard />
+      <TelephoneInput>Ваш номер: {router.query.phoneNumber}</TelephoneInput>
+      <TelephoneInput>Введите сумму: {phoneNumber} р.</TelephoneInput>
+      <NumKeyboard setPhoneNumber={setPhoneNumber} phoneNumber={phoneNumber} />
     </>
   );
 };
