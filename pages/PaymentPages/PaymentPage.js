@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import NumKeyboard, { setSum } from "../../src/components/NumPad";
 import OperatorTitle from "../../src/components/Title";
 
-const PhoneInput = styled.p`
+const PhoneInput = styled.div`
   text-align: center;
 `;
 const PaymentPage = props => {
