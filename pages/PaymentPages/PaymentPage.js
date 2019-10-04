@@ -6,13 +6,9 @@ import { useRouter } from "next/router";
 import NumKeyboard, { setSum } from "../../src/components/NumPad";
 import OperatorTitle from "../../src/components/Title";
 
-const MtsPage = styled.h1`
+const PhoneInput = styled.p`
   text-align: center;
-  padding-top: 100px;
 `;
-
-// export const operatorPaht = router.query.EnterPhonePage;
-
 const PaymentPage = props => {
   const router = useRouter();
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -21,8 +17,20 @@ const PaymentPage = props => {
     <>
       <Header />
       <OperatorTitle name={router.query.name} />
-      <TelephoneInput>Ваш номер: {router.query.phoneNumber}</TelephoneInput>
-      <TelephoneInput>Введите сумму: {phoneNumber} р.</TelephoneInput>
+      <PhoneInput>
+        Ваш номер:
+        <TelephoneInput
+          mask="+7 (999) 999 99 99"
+          value={router.query.phoneNumber}
+        >
+          {router.query.phoneNumber}
+        </TelephoneInput>
+        Введите сумму:
+        <TelephoneInput placeholder="Введите сумму" mask={`${phoneNumber} р.`}>
+          {phoneNumber}
+        </TelephoneInput>
+      </PhoneInput>
+
       <NumKeyboard setPhoneNumber={setPhoneNumber} phoneNumber={phoneNumber} />
     </>
   );

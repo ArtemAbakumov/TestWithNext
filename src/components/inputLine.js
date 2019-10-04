@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import InputMask from "react-input-mask";
 
 const InputStyle = styled.form`
   text-align: center;
@@ -9,6 +10,16 @@ const InputStyle = styled.form`
 `;
 // class TelephoneInput extends Component {
 function TelephoneInput(props) {
-  return <InputStyle>{props.children}</InputStyle>;
+  return (
+    <InputStyle>
+      <InputMask
+        type="numeric"
+        value={props.children}
+        mask={props.mask}
+        maskChar="_"
+        placeholder={props.placeholder}
+      />
+    </InputStyle>
+  );
 }
 export default TelephoneInput;

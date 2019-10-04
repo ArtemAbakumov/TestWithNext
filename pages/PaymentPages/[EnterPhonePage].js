@@ -14,7 +14,9 @@ const MtsPage = styled.h1`
   text-align: center;
   padding-top: 100px;
 `;
-
+const PhoneInput = styled.p`
+  text-align: center;
+`;
 const EnterPhonePage = props => {
   const router = useRouter();
   const name = router.query.EnterPhonePage;
@@ -25,7 +27,16 @@ const EnterPhonePage = props => {
     <Fragment>
       <Header />
       <OperatorTitle name={name} />
-      <TelephoneInput>Введите ваш номер:{phoneNumber}</TelephoneInput>
+      <PhoneInput>
+        Введите ваш номер:{" "}
+        <TelephoneInput
+          mask="+7 (999) 999 99 99"
+          placeholder="+7 (999) 999 99 99"
+        >
+          {phoneNumber}
+        </TelephoneInput>
+      </PhoneInput>
+
       <NumKeyboard setPhoneNumber={setPhoneNumber} phoneNumber={phoneNumber} />
       <SubmitButton name={name} phoneNumber={phoneNumber} />
     </Fragment>
