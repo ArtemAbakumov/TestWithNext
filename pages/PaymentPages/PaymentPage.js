@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import NumKeyboard, { setSum } from "../../src/components/NumPad";
 import OperatorTitle from "../../src/components/Title";
+import { usePhoneNumberReducer } from "../../src/usePhoneNumberReducer";
 
 const MtsPage = styled.h1`
   text-align: center;
@@ -12,18 +13,21 @@ const MtsPage = styled.h1`
 
 // export const operatorPaht = router.query.EnterPhonePage;
 
-const PaymentPage = () => {
+const PaymentPage = ({ setPhoneNumber, phoneNumber }) => {
   const router = useRouter();
 
-  const initialState = "";
-  const reducer = (state, action) => action;
+  const [state, dispatch] = usePhoneNumberReducer();
 
-  const [phoneNumber, setPhoneNumber] = useReducer(reducer, initialState);
+  console.log("asdsadsad", state);
+
   return (
     <>
       <Header />
       <OperatorTitle name={router.query.name} />
       <NumKeyboard setPhoneNumber={setPhoneNumber} phoneNumber={phoneNumber} />
+      <button onClick={() => dispatch({ type: "reset", payload: 10 })}>
+        TEASJKDLKAJSD
+      </button>
     </>
   );
 };

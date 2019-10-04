@@ -9,29 +9,22 @@ import NumKeyboard from "../../src/components/NumPad";
 import SubmitButton from "../../src/components/submitButton";
 import OperatorTitle from "../../src/components/Title";
 import UserContext from "../../src/components/UserContext";
+import { usePhoneNumberReducer } from "../../src/usePhoneNumberReducer";
 
 const MtsPage = styled.h1`
   text-align: center;
   padding-top: 100px;
 `;
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "increment":
-      return action;
-    case "decrement":
-      return state;
-    default:
-      throw new Error();
-  }
-};
 const EnterPhonePage = props => {
   const router = useRouter();
+
+  const [state, dispatch] = usePhoneNumberReducer();
+
+  console.log("SDJKKADJ", state);
+
   const name = router.query.EnterPhonePage;
 
-  // const [phoneNumber, setPhoneNumber] = useState("");
-  const initialState = "";
-
-  const [phoneNumber, setPhoneNumber] = useReducer(reducer, initialState);
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   return (
     <Fragment>
@@ -42,6 +35,9 @@ const EnterPhonePage = props => {
       </TelephoneInput>
       <NumKeyboard setPhoneNumber={setPhoneNumber} phoneNumber={phoneNumber} />
       <SubmitButton name={name} phoneNumber={phoneNumber} />
+      <button onClick={() => dispatch({ type: "reset", payload: 20 })}>
+        TEASJKDLKAJSD
+      </button>
     </Fragment>
   );
 };

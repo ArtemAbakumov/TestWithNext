@@ -31,7 +31,7 @@ export const reducer = (state, action) => {
   }
 };
 
-const NumKeyboard = ({ setPhoneNumber, phoneNumber }) => {
+const NumKeyboard = ({ phoneNumber, setPhoneNumber }) => {
   const state = {
     buttons: [
       {
@@ -87,10 +87,6 @@ const NumKeyboard = ({ setPhoneNumber, phoneNumber }) => {
     if (char === "<<") return setPhoneNumber("");
     else setPhoneNumber(phoneNumber.concat(char));
   };
-
-  const initialState = "";
-  const reducer = (phoneNumber, setPhoneNumber = setPhoneNumberR) =>
-    setPhoneNumber;
 
   return (
     <React.Fragment>
